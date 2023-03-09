@@ -1,8 +1,9 @@
 
+
 while True:
     x = input("Let's go to experience!")
 
-    if x.startswith('add' or 'add list'):
+    if x.startswith('add'):
 
         y = x[4:]
 
