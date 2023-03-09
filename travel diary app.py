@@ -1,3 +1,7 @@
+def list_place():
+    with open('listoftouristattraction.txt', 'r') as file:
+        readplace = file.readlines()
+    return readplace
 
 
 while True:
@@ -8,8 +12,7 @@ while True:
         y = x[4:]
 
 
-        with open('listoftouristattraction.txt', 'r') as file:
-            listoftouristattraction = file.readlines()
+        listoftouristattraction = list_place()
 
         listoftouristattraction.append(y + '\n')
 
@@ -20,8 +23,7 @@ while True:
     elif x.startswith('show' or 'show list'):
 
 
-        with open('listoftouristattraction.txt', 'r') as file:
-            listoftouristattraction = file.readlines()
+        listoftouristattraction = list_place()
         # a = [item.strip('listoftouristattraction.txt', 'r')]
         for item, index in enumerate(listoftouristattraction):
             index = index.strip('\n')
@@ -32,8 +34,7 @@ while True:
     elif x.startswith('edit'):
         try:
             z = int(x[5:])
-            with open('listoftouristattraction.txt', 'r') as file:
-                listoftouristattraction = file.readlines()
+            listoftouristattraction = list_place()
 
             z = z-1
             listoftouristattraction[z] = input("new location:") + "\n"
@@ -47,8 +48,7 @@ while True:
     elif x.startswith('complete'):
         try:
             z = int(x[9:])
-            with open('listoftouristattraction.txt', 'r') as file:
-                listoftouristattraction = file.readlines()
+            listoftouristattraction = list_place()
 
             z = z - 1
             placeremove = listoftouristattraction[z].strip('\n')
