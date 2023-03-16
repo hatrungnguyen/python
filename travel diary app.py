@@ -1,10 +1,12 @@
-def list_place(filepath):
+def list_place(filepath="listoftouristattraction.txt"):
+    """ Read a text file and return a place"""
     with open(filepath, 'r') as file:
         readplace = file.readlines()
     return readplace
 
 
-def write_place(filepath, places):
+def write_place(places, filepath="listoftouristattraction.txt"):
+    """" Write a place in the text file"""
     with open(filepath, 'w') as file:
         file.writelines(listoftouristattraction)
 
@@ -18,17 +20,17 @@ while True:
         y = x[4:]
 
 
-        listoftouristattraction = list_place("listoftouristattraction.txt")
+        listoftouristattraction = list_place()
 
         listoftouristattraction.append(y + '\n')
 
 
-        write_place("listoftouristattraction.txt", listoftouristattraction)
+        write_place(listoftouristattraction)
 
     elif x.startswith('show' or 'show list'):
 
 
-        listoftouristattraction = list_place("listoftouristattraction.txt")
+        listoftouristattraction = list_place()
         # a = [item.strip('listoftouristattraction.txt', 'r')]
         for index, item in enumerate(listoftouristattraction):
             item = item.strip('\n')
@@ -39,11 +41,11 @@ while True:
     elif x.startswith('edit'):
         try:
             z = int(x[5:])
-            listoftouristattraction = list_place("listoftouristattraction.txt")
+            listoftouristattraction = list_place()
 
             z = z-1
             listoftouristattraction[z] = input("new location:") + "\n"
-            write_place("listoftouristattraction.txt", listoftouristattraction)
+            write_place(listoftouristattraction)
         except ValueError:
             print("Wrong input")
             continue
@@ -52,12 +54,12 @@ while True:
     elif x.startswith('complete'):
         try:
             z = int(x[9:])
-            listoftouristattraction = list_place("listoftouristattraction.txt")
+            listoftouristattraction = list_place()
 
             z = z - 1
             placeremove = listoftouristattraction[z].strip('\n')
             listoftouristattraction.pop(z)
-            write_place("listoftouristattraction.txt", listoftouristattraction)
+            write_place(listoftouristattraction)
             message = f"{placeremove} has been deleted"
             print(message)
         except IndexError:
