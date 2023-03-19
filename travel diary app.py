@@ -1,5 +1,8 @@
 from funcitons import list_place, write_place
 # import funcitons
+import time
+now = time.strftime("%b %d, %Y %H:%M:%S")
+print("It is", now)
 
 
 
